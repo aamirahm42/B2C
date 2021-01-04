@@ -3,7 +3,8 @@ jobs:
 build:    
 docker:      
 - image: circleci/node:8    
-steps:      - checkout      
+steps:      
+- checkout      
 - restore_cache:           
 key: dependency-cache-{{ checksum "package.json" }}      
 - run:          
@@ -14,7 +15,8 @@ name: Setup Code Climate test-reporter
 command:             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter            chmod +x ./cc-test-reporter      
 - save_cache:           
 key: dependency-cache-{{ checksum "package.json" }}          
-paths:            - ./node_modules      
+paths:            
+- ./node_modules      
 - run:           
 name: Run Test and Coverage          
 command:             ./cc-test-reporter before-build            npm test -- --coverage            ./cc-test-reporter after-build --exit-code $?
