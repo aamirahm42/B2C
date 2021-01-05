@@ -1,19 +1,14 @@
 version: 0.2
 
 phases:
-    install:
-        commands:
-          - npm i
+  pre-build:
+    commands:
+      - npm install
 
-
-pre-build:
-  commands:
-      - npm
-
-build:
-  commands:
-      - npm test
-      - npm build
+  build:
+    commands:
+      - npm run test
+      - npm run build
 
 artifacts:
   files:
