@@ -14,8 +14,4 @@ workflows:
       - react/coverage:
           requires:
             - react/install
-      - run:
-          name: "Run Jest and Collect Coverage Reports"
-          command: jest --collectCoverage=true
-      - store_artifacts:
-          path: coverage
+     
