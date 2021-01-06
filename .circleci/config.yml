@@ -1,5 +1,6 @@
 orbs:
   react: thefrontside/react@0.2.0
+  aws-code-deploy: circleci/aws-code-deploy@1.0.1
 version: 2.1
 workflows:
   build: 
@@ -14,4 +15,12 @@ workflows:
       - react/coverage:
           requires:
             - react/install
+  deploy_application:
+    jobs:
+      - aws-code-deploy/deploy:
+          application-name: myApplication
+          bundle-bucket: myApplicationS3Bucket
+          bundle-key: myS3BucketKey
+          deployment-group: myDeploymentGroup
+          service-role-arn: myDeploymentGroupRoleARN
      
