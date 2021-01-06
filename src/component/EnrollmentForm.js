@@ -14,7 +14,7 @@ export class Enrollment extends Component {
   };
   handleLogin = (e) => {
     e.preventDefault();
-    alert("enrolled successfully");
+    alert("enrolled succely");
   };
 
   render() {
